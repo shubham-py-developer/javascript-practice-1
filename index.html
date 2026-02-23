@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS Learning</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        button {
+            margin: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Select JS File to Load</h2>
+
+    <button onclick="loadJS('js/L-1VarandData.js')">L-1: Variables & Data</button><br>
+    <button onclick="loadJS('js/L-2Operators.js')">L-2: Operators</button><br>
+    <button onclick="loadJS('js/L-3Functions.js')">L-3: Functions</button><br>
+    <button onclick="loadJS('js/L-4Conditions.js')">L-4: Conditions</button>
+    <!-- Add more buttons as needed -->
+    <script>
+        let currentScript = null;
+
+        function loadJS(file) {
+            // Remove previously loaded script
+            if (currentScript) {
+                currentScript.remove();
+                console.clear();
+            }
+
+            const script = document.createElement("script");
+            script.src = file;
+            script.type = "module";
+
+            document.body.appendChild(script);
+            currentScript = script;
+
+            console.log(`Loaded: ${file}`);
+        }
+    </script>
+
+</body>
+</html>
