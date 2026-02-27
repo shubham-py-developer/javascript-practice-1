@@ -124,6 +124,7 @@ unshift(): add to start
 shift():delete value from begin in new!
 slice():return  a piece of array :slice(startidx, endingidx):original array remains same
 splice(): change original array(add,remove,replace):splice(startidx,delCount,newElement)
+map():create a new array with  the result of some operation.The value its callback return are used to form new array!
 
 */
 /*
@@ -286,9 +287,10 @@ countVowel("desh mera rangila");
 countVowel("an empty space will be best for new creativity");
 
 
-//ForEach Loop in Arrays: arr.forEach(callBackFunction)
+//*******ForEach Loop/Higher order functions/higher order methods in Arrays: arr.forEach(callBackFunction)
 //callBackFunction: Here, it is a function to execute for each element in the array
 //a callback is a function passed  as an argument to another fucntion.
+//HOF are the fuctions which either take another fn as a parameter inside them or they return another fn as a value...
 
 function Wish(){
     return "hello user welcome to Home page";
@@ -339,6 +341,7 @@ arr1.forEach(val => {
     console.log(typeof val === "string"? val.toLocaleUpperCase():val);
 });
 */
+/*
 //now i want the array data type output than!with optimize and complexity min...
 let arr1 = ["alpha", "beta", "gama", "delta", "zeta", "peta"];
 for(let i=0;i<arr1.length;i++){
@@ -359,3 +362,125 @@ for (let i = 0; i < arr1.length; i++) {
 }
 
 console.log(arr1);
+
+//hof
+let arr2 =["lko","del","pnq","Bom","sxr"];
+arr2.forEach((Val, Idx, arr2)=>{
+    console.log(Val.toLocaleUpperCase(),Idx, arr2);
+});
+//hof
+let arr3 = [10,20,30,40,50];
+arr3.forEach((val,i)=>{
+    console.log(val*val,    i);
+});
+//hof
+let nums = [23,34,12,34,25];
+let calcuSqr = (num)=>{
+    console.log(num * num);
+}
+nums.forEach(calcuSqr);
+*/
+/*
+//map():create a new array with  the result of some operation.The value its callback return are used to form new array!
+// use case:let newArray = Array.map(callbackFnx(Value, index, array));
+let nums = [22,24,26,28,30];
+let newNums = nums.map((val)=>{
+    return val*val;
+});
+console.log(newNums, nums);
+
+
+let num1 = [21,24,26,28,30];
+let calcuSq = (val)=>{
+    console.log(val*val);
+};
+num1.forEach(calcuSq);
+*/
+/*
+//Array method: Filter:create a new array of elements that gives true for a condition/filter
+//ex:all even elements
+let arr4 = [1,2,3,4,5,6,7,8,9,10];
+let evenArr =arr4.filter((val)=>{
+    return val%2===0;
+});
+console.log(evenArr);//[2,4,6,8,10];
+//Array method:reduce: performs some operations & reduces the array to a single value.it return the single value.
+//sum of all numbers in array
+let arr5  = [23,43,35,45,24,56,56,67];
+const newarr5 = arr5.reduce((res,curr)=>{
+    return res+curr;//23+43:66+35:101+45:......
+});
+console.log(`sum of array : ${newarr5}`);//349
+//max number 
+let arr6  = [23,43,35,45,24,56,56,67];
+const newarr6 = arr6.reduce((res,curr)=>{
+    return res>=curr? res: curr;
+});
+console.log(`max of array : ${newarr6} and array is ${arr6}`);//67
+//min number
+let arr7 = [23,45,31,12,34,45,55,34,33,76];
+const minnArray = arr7.reduce((res,curr)=>{
+    return res<=curr ? res :curr;
+});
+console.log(`min of array : ${minnArray} and array is ${arr7}`);//12
+
+//filter the value from array which is 90+!
+let arr8 = [35,45,46,79,90,92,55,60,99,94];
+let newArr8 = arr8.filter((val)=>{
+    return val>=90;
+});
+console.log(newArr8);//[90, 92, 99, 94]
+*/
+/*
+//take n as input return sum , multiplication/factorial
+let n = Number(prompt("enter no.:"));
+let arr9 =[];
+for(let i = 0;i<n;i++){
+    arr9[i]=(i+1)*10;  
+}console.log(arr9);//[10,20,30........n*10];
+//addition of array
+let sum1 = arr9.reduce((res,curr)=>{
+    return res+curr;
+});
+console.log(sum1);//10+20+30+....+n;
+
+//multiplications of array or factorial of n!
+let mult1 = arr9.reduce((res,curr)=>{
+    return res*curr;
+});
+console.log(mult1);//10*20*30*......*n!
+//best practice to handle error!
+let p = Number(prompt("enter a number to calculate factorial!"));
+let arrk = [];
+for(let i=0;i<p; i++){
+    arrk[i]=i+1;
+};
+console.log(arrk);
+let facto = arrk.reduce((res,curr)=>{
+    return res*curr;
+},1);//here 1 is initial value of reduce so that if user enter zero or blank[] than return 1 otherwise error will be if not used 1!
+console.log(facto);
+
+
+//or Clean & Improved Version
+let p = Number(prompt("Enter a number to calculate factorial"));
+
+let arrk = [];
+for (let i = 1; i <= p; i++) {
+    arrk.push(i);
+}
+
+let factorial = arrk.reduce((res, curr) => res * curr, 1);//error handle!
+
+console.log("Factorial:", factorial);
+
+//optimize factorial
+let f1= Number(prompt("enter no:"));//note:Factorial is not defined for negative numbers because the multiplication never terminates.
+let fact =1;
+for(let i =1;i<f1;i++){
+    fact*=i;
+}
+console.log(`Factorial of ${f1} is ${fact}`);
+*/
+
+//---------------Chapter-6 :DOM:Document Object Model---------------------------------------------
