@@ -29,7 +29,7 @@ Each file inside the js/ folder represents a learning module.
 
 Each file may contain multiple problems.
 
-Since only one problem is executed at a time, previous problems are commented out while testing new ones.
+Since only one problem is executed at a time, previous problems are commented out(*/,/* remove if you want to run ) while testing new ones.
 
 This structure helps maintain all related practice in one place without creating excessive files.
 
